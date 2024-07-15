@@ -1,0 +1,14 @@
+[package]
+name = "sdq-beamer"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "src/lib.typ"
+
+authors = ["Aaron Geiger <aaron.geiger@student.kit.edu>"]
+
+repository = "https://github.com/comeza/sdq-beamer"
+license = "MIT"
+
+keywords = ["clean", "grape", "minimal", "paper"]
+description = "Library of templates for exams, seminar papers, homeworks, etc."
+categories = ["layout", "presentation"]
