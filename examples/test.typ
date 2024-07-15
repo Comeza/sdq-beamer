@@ -11,7 +11,7 @@
     box-notice-title: [Achtung!],
     box-example-title: [Beispiel],
 
-    author: "Aaron Geiger",
+    author: "Dr.-Ing. Erik Burger",
     email: link("mailto:aaron.geiger@student.kit.edu"),
 )
 
@@ -33,6 +33,15 @@
 
     #info[
         Notieren Sie als Wort oder kurzen Stichpunkt vorne am Whiteboard, was Sie von einem erfolgreichen Logik-Tutorium und einem guten Logik-Tutor erwarten!
+    ]
+
+    #definition[
+      hey
+      $ sum_(i = 0)^(oo) 1 $
+    ]
+
+    #example[
+      hey
     ]
 ]
 
@@ -77,7 +86,6 @@
     #heading(outlined: false)[Nun eine kurze Demonstration, wo Sie die Medien finden.]
 ]
 
-
 #slide[
     = Motivation logischer Analyse
 
@@ -87,11 +95,11 @@
 ]
 
 #slide[
-    == Flugzeugentführung im Urlaubsparadies
-
-    #info[
-        #lorem(20)
-    ]
+```java
+public static void Main(String[] args) {
+  System.out.println("Hey");
+}
+```
 ]
 
 #slide[

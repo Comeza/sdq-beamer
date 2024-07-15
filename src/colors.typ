@@ -7,4 +7,4 @@
 #let kit-purple = rgb(163, 16, 124)
 #let kit-brown = rgb(167, 130, 46)
 #let kit-cyan = rgb(35, 161, 224)
-#let kit-gray = rgb(0, 0, 0)
+#let kit-gray = rgb(0, 0, 0).lighten(85%)
