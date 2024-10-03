@@ -27,13 +27,6 @@
     show-semester: true,
     show-outline: true,
 
-    box-hint-title: standard-box-translations.at("hint"),
-    box-solution-title: standard-box-translations.at("solution"),
-    box-definition-title: standard-box-translations.at("definition"),
-    box-notice-title: standard-box-translations.at("notice"),
-    box-example-title: standard-box-translations.at("example"),
-    box-info-title: standard-box-translations.at("info"),
-
     date: datetime.today(),
     body
 ) = {
@@ -58,7 +51,12 @@
       align(horizon,
         stack(dir: ltr, spacing: 1fr,
           text(kit-slogan),
-          link("https://kit.edu", text(weight: "bold", size: 16pt, [www.kit.edu]))
+          (locate(loc => if loc.page() == 1 {
+            link("https://kit.edu", text(weight: "bold", size: 16pt, [www.kit.edu]))
+          } else {
+            text(faculty)
+          },
+          ))
         )
       )
     )
