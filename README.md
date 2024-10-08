@@ -1,5 +1,5 @@
-# ssq-beamer
-> Unofficial port of the sqd-beamer LaTeX package to typst
+# sdq-beamer
+> Unofficial port of the sdq-beamer package of the Karlsruhe Institute of Technology (KIT) for tutorials 
 
 ## Installation
 
