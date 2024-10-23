@@ -1,4 +1,5 @@
 #import "@preview/polylux:0.3.1"
+#import "@preview/hydra:0.5.1": hydra
 
 #import "dates.typ": semester, weekday
 #import "colors.typ": *
@@ -31,17 +32,17 @@
     body
 ) = {
     show footnote.entry: set text(size: 0.8em, fill: black.lighten(20%))
-    set heading(numbering: "1.")
+    set heading(numbering: none)
     show heading: set text(fill: kit-blue, size: 18pt)
 
     let date-fmt = date.display("[day]. [month repr:long] [year]")
 
-    set text(size: 14pt, lang: "de", font: "Roboto")
+    set text(size: 18pt, lang: "de", font: "Roboto")
 
     let header = (locate(loc => if loc.page() > 1 {
       block(height: 100%, width: 100%, inset: (right: 1cm),
         stack(spacing: 1fr, dir: ltr,
-          text(weight: "bold", size: 24pt)[Inhaltsverzeichnis],
+          (text(weight: "bold", size: 24pt)[#context { hydra(1) }]),
           image(height: 100% - 1cm, kit-logo)
         )
       )
