@@ -53,9 +53,9 @@ symlink:
     ln -s {{justfile_directory()}} {{PATH}}
 
 [doc("Builds target")]
-build target:
+build target="examples/*.typ":
     typst compile {{target}} --root .
 
 [doc("Watches target.")]
-watch target:
+watch target="examples/*.typ":
     typst watch {{target}} --root .

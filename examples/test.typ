@@ -1,27 +1,34 @@
 #import "/src/lib.typ": *
 
-#show: slides.with(
-    no: 1,
-    series: [Präsentation mit Typst Beamer im KIT-Design],
-    title: [entsprechend den Gestaltungsrichtlinien vom 1. August 2020, mit anpassungen für Typst],
-    faculty: [Hurensohn Institut],
+#set text(lang: "en")
 
-    author: "Max Mustermann",
-    email: link("mailto:example@example.com"),
+#show: slides.with(
+  no: 1,
+  series: [Präsentation mit Typst Beamer im KIT-Design],
+  title: [entsprechend den Gestaltungsrichtlinien vom 1. August 2020, mit anpassungen für Typst],
+  faculty: [Hurensohn Institut],
+
+  author: "Max Mustermann",
+  email: link("mailto:example@example.com"),
 )
 
-#slide[
-    #greenbox("Greenbox")[
-      - Das KIT ist toll
-      - Das KIT ist toll
-      - Das KIT ist toll
-    ]
+#title-slide()
 
-    #bluebox("Passiert")[
-        lol
-    ]
+#slide(title: "Gaming")[
+  #context {
+    slide-series.get()
+  }
+  #greenbox("Greenbox")[
+    - Das KIT ist toll
+    - Das KIT ist toll
+    - Das KIT ist toll
+  ]
 
-    #redbox("gaming")[
-        lol
-    ]
+  #bluebox("Passiert")[
+    lol
+  ]
+
+  #redbox("gaming")[
+    lol
+  ]
 ]
