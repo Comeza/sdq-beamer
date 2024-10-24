@@ -1,49 +1,57 @@
 #let semester(short: false, date) = {
-    let wise = (
-        long: "Wintersemester",
-        short: "WiSe"
-    ).at(if short { "short" } else { "long" })
+  let wise = (
+    long: "Wintersemester",
+    short: "WiSe",
+  ).at(if short {
+    "short"
+  } else {
+    "long"
+  })
 
-    let sose = (
-        long: "Sommersemester",
-        short: "SoSe"
-    ).at(if short { "short" } else { "long" })
+  let sose = (
+    long: "Sommersemester",
+    short: "SoSe",
+  ).at(if short {
+    "short"
+  } else {
+    "long"
+  })
 
-    let sem = wise
+  let sem = wise
 
-    let year = if date.month() < 4 or date.month() > 9 {
-        date.year() - 1
-    } else {
-        sem = sose
-        date.year()
-    }
+  let year = if date.month() < 4 or date.month() > 9 {
+    date.year() - 1
+  } else {
+    sem = sose
+    date.year()
+  }
 
-    [#sem ]
+  [#sem ]
 
-    if sem == wise {
-        [#year/#(year+1)]
+  if sem == wise {
+    [#year/#(year+1)]
 
-    } else {
-        [#year]
-    }
+  } else {
+    [#year]
+  }
 }
 
 #let german-days = (
-    "Montag",
-    "Dienstag",
-    "Mittwoch",
-    "Donnerstag",
-    "Freitag",
-    "Samstag",
-    "Sonntag"
+  "Montag",
+  "Dienstag",
+  "Mittwoch",
+  "Donnerstag",
+  "Freitag",
+  "Samstag",
+  "Sonntag",
 )
 
 #let weekday(short: false, daynr) = {
-    let day = german-days.at(daynr - 1)
+  let day = german-days.at(daynr - 1)
 
-    if short {
-        day = day.slice(0, 2)
-    }
+  if short {
+    day = day.slice(0, 2)
+  }
 
-    day
+  day
 }
