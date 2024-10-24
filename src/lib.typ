@@ -29,48 +29,58 @@
     show-outline: true,
 
     date: datetime.today(),
+    datefmt: "[day]. [month repr:long] [year]",
     body
 ) = {
     show footnote.entry: set text(size: 0.8em, fill: black.lighten(20%))
     set heading(numbering: none)
     show heading: set text(fill: kit-blue, size: 18pt)
-
-    let date-fmt = date.display("[day]. [month repr:long] [year]")
+    let date-fmt = date.display(datefmt)
 
     set text(size: 18pt, lang: "de", font: "Roboto")
 
-    let header = (locate(loc => if loc.page() > 1 {
-      block(height: 100%, width: 100%, inset: (right: 1cm),
-        stack(spacing: 1fr, dir: ltr,
-          (text(weight: "bold", size: 24pt)[#context { hydra(1) }]),
-          image(height: 100% - 1cm, kit-logo)
+    let header = context {
+        let page = here().position().page
+        if page > 1 {
+            block(height: 100%, width: 100%, inset: (right: 1cm),
+            stack(spacing: 1fr, dir: ltr,
+                (text(weight: "bold", size: 24pt)[#context { hydra(1) }]),
+                image(height: 100% - 1cm, kit-logo))
+            )
+        }
+    }
+
+    let footer_title_page = context {
+        let page = here().position().page
+        let slogan = if page == 1 {
+                link("https://kit.edu", text(weight: "bold", size: 16pt, [www.kit.edu]))
+            } else {
+                text(faculty)
+            }
+
+        block(height: 1cm,
+          align(horizon,
+            stack(dir: ltr, spacing: 1fr,
+              text(kit-slogan),
+              slogan
+            )
+          )
         )
-      )
-    }))
+    }
 
-    let footer_title_page(loc) = block(height: 1cm,
-      align(horizon,
-        stack(dir: ltr, spacing: 1fr,
-          text(kit-slogan),
-          (locate(loc => if loc.page() == 1 {
-            link("https://kit.edu", text(weight: "bold", size: 16pt, [www.kit.edu]))
-          } else {
-            text(faculty)
-          },
-          ))
-        )
-      )
-    )
+    let footer_rest() = context {
+        let loc = here()
+        let current = counter(page).at(loc).first() - 1
+        let last = counter(page).final(loc).first() - 1
 
-    let footer_rest(loc) = {
-      let current = counter(page).at(loc).first() - 1
-      let last = counter(page).final(loc).first() - 1
-
-      line(length: 100%, stroke: 1pt + kit-gray)
+        line(length: 100%, stroke: 1pt + kit-gray)
       [ *#current/#last* #h(0.1fr) #date-fmt #h(0.1fr) #author: #series #h(1fr) #faculty ]
     }
 
-    let footer = (locate(loc => if loc.page() == 1 { footer_title_page(loc) } else { footer_rest(loc) }));
+    let footer = context {
+        let page = here().position().page
+        if page == 1 { footer_title_page } else { footer_rest }
+    }
 
     set page(
       paper: "presentation-16-9",

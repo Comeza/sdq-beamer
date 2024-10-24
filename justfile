@@ -51,3 +51,11 @@ symlink:
     mkdir -p {{PATH}}
     rm -rf {{PATH}}
     ln -s {{justfile_directory()}} {{PATH}}
+
+[doc("Builds target")]
+build target:
+    typst compile {{target}} --root .
+
+[doc("Watches target.")]
+watch target:
+    typst watch {{target}} --root .
