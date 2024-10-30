@@ -2,7 +2,7 @@
 #import "vars.typ": kit-corner-radius
 
 // TODO: Use box.with
-#let infobox(title, color: kit-green, width: 80%, body) = box(
+#let infobox(title, color: kit-green, width: 100%, body) = box(
   width: width,
   {
     set par(justify: true)
@@ -29,5 +29,6 @@
 )
 
 #let greenbox = infobox.with(color: kit-green)
+#let purplebox = infobox.with(color: kit-purple)
 #let bluebox = infobox.with(color: kit-blue)
 #let redbox = infobox.with(color: kit-red)

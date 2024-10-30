@@ -8,6 +8,7 @@
 #import "variants/default.typ": *
 #import "variants/title-page.typ": *
 
+
 #let unbreak(body) = {
   set text(hyphenate: false)
   body
@@ -39,8 +40,8 @@
   slide-date.update(date)
 
   show footnote.entry: set text(size: 0.8em, fill: black.lighten(20%))
-  set heading(numbering: none)
   show heading: set text(size: 18pt)
+  set heading(numbering: none)
 
   set text(size: 18pt, font: "Roboto")
 
@@ -63,7 +64,7 @@
     block(
       height: 100%,
       width: 100%,
-      inset: (right: 1cm),
+      //inset: (right: 1cm),
       stack(
         spacing: 1fr,
         dir: ltr,
@@ -85,7 +86,7 @@
   set page(
     paper: ratio,
     fill: white,
-    margin: (top: 4cm, left: 1cm),
+    margin: (top: 4cm, left: 1cm, right: 1cm),
     header: header,
     footer: footer-info,
   )
