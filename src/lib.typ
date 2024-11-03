@@ -39,56 +39,25 @@
   slide-faculty.update(faculty)
   slide-date.update(date)
 
-  show footnote.entry: set text(size: 0.8em, fill: black.lighten(20%))
-  show heading: set text(size: 18pt)
-  set heading(numbering: none)
-
-  set text(size: 18pt, font: "Roboto")
-
-  let footer-info = context {
-    set text(10pt)
-    let loc = here()
-    let current = counter(page).at(loc).first() - 1
-    let last = counter(page).final(loc).first() - 1
-
-    let author = slide-author.get()
-    let series = slide-series.get()
-    let faculty = slide-faculty.get()
-
-    line(length: 100%, stroke: 1pt + kit-gray)
-    [ *#current/#last* #h(0.1fr) #get-date #h(0.1fr) #author: #series #h(1fr) #faculty ]
-  }
-
-  let header = context {
-    let page = here().position().page
-    block(
-      height: 100%,
-      width: 100%,
-      //inset: (right: 1cm),
-      stack(
-        spacing: 1fr,
-        dir: ltr,
-        text(
-          weight: "bold",
-          size: 24pt,
-          hydra(1),
-        ),
-        kit-logo(height: 100% - 1cm),
-      ),
-    )
-  }
-
   let ratio = (
     "16:9": "presentation-16-9",
     "4:3": "presentation-4-3",
   ).at(aspect-ratio)
 
+  show footnote.entry: set text(size: 0.8em, fill: black.lighten(20%))
+  show heading: set text(size: 18pt)
+  show link: it => {
+    set text(fill: kit-blue)
+    underline(it)
+  }
+
+  set heading(numbering: none)
+  set text(size: 18pt, font: "Roboto")
+
   set page(
     paper: ratio,
     fill: white,
     margin: (top: 4cm, left: 1cm, right: 1cm),
-    header: header,
-    footer: footer-info,
   )
 
   body
