@@ -7,6 +7,7 @@
 #import "vars.typ": *
 #import "variants/default.typ": *
 #import "variants/title-page.typ": *
+#import "variants/center-page.typ": *
 
 
 #let unbreak(body) = {
