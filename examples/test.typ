@@ -15,20 +15,23 @@
 #title-slide()
 
 #slide(title: "Gaming")[
-  #context {
-    slide-series.get()
-  }
-  #greenbox("Greenbox")[
-    - Das KIT ist toll
-    - Das KIT ist toll
-    - Das KIT ist toll
-  ]
+    #context {
+      slide-series.get()
+    }
 
-  #bluebox("Passiert")[
-    lol
-  ]
+    #greenbox("Greenbox")[
+      - Das KIT ist toll
+      - Das KIT ist toll
+      - Das KIT ist toll
+    ]
 
-  #redbox("gaming")[
-    lol
-  ]
+    #bluebox("Passiert")[
+      lol
+    ]
+
+    #redbox("gaming")[
+      lol
+    ]
+
+    #lorem(300)
 ]

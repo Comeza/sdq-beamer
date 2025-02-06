@@ -2,9 +2,8 @@
 #import "/src/colors.typ": *
 #import "@preview/polylux:0.3.1"
 
-#let slide(title: none, ..args) = (
-  context {
-    let header = {
+#let slide(title: none, ..args) = {
+    let header = context {
       let page = here().position().page
       block(
         height: 100%,
@@ -23,9 +22,9 @@
     }
 
 
-    let footer-info = {
+    let footer-info = context {
       set text(10pt)
-      let loc = here()
+      let loc =  here() 
       let current = counter(page).at(loc).first() - 1
       let last = counter(page).final(loc).first() - 1
 
@@ -44,8 +43,5 @@
     )
 
     polylux.polylux-slide(..args)
-    counter("slide-counter").step()
-  }
-)
-
+}
 

@@ -29,8 +29,7 @@
   }
 }
 
-#let days = context if text.lang == "de" {
-  (
+#let days-de = (
     "Montag",
     "Dienstag",
     "Mittwoch",
@@ -39,8 +38,8 @@
     "Samstag",
     "Sonntag",
   )
-} else {
-  (
+
+#let days-en = (
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -49,7 +48,8 @@
     "Saturday",
     "Sunday",
   )
-}
+
+#let days = context if text.lang == "de" { days-de } else { days-en }
 
 #let weekday(short: false, daynr) = {
   let day = days.at(daynr - 1)
