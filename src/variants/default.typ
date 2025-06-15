@@ -1,6 +1,6 @@
 #import "/src/vars.typ": *
 #import "/src/colors.typ": *
-#import "@preview/polylux:0.3.1"
+#import "@preview/polylux:0.4.0"
 
 #let slide(title: none, ..args) = {
     let header = context {
@@ -16,7 +16,7 @@
             size: 26pt,
             title,
           ),
-          kit-logo(height: 100% - 1cm),
+          if page > 1 { kit-logo(height: 100% - 1cm) }
         ),
       )
     }
@@ -26,7 +26,7 @@
       set text(10pt)
       let loc =  here() 
       let current = counter(page).at(loc).first() - 1
-      let last = counter(page).final(loc).first() - 1
+      let last = counter(page).final().first() - 1
 
       let author = slide-author.get()
       let series = slide-series.get()
@@ -42,6 +42,8 @@
       footer: footer-info,
     )
 
-    polylux.polylux-slide(..args)
+    polylux.slide(..args)
+    counter("slide-counter").step()
 }
+
 

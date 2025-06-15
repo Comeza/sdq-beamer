@@ -1,8 +1,8 @@
 #import "../vars.typ": *
 #import "default.typ": *
 
-#import "@preview/polylux:0.3.1"
-#import "@preview/hydra:0.5.1": hydra
+#import "@preview/polylux:0.4.0"
+#import "@preview/hydra:0.6.1": hydra
 
 #let title-slide(
   banner-path: "/logos/banner_2020_kit.jpg",
@@ -21,7 +21,6 @@
           size: 24pt,
           hydra(1),
         ),
-        kit-logo(height: 100% - 1cm),
       ),
     )
   }

@@ -6,7 +6,7 @@
   no: 1,
   series: [Präsentation mit Typst Beamer im KIT-Design],
   title: [entsprechend den Gestaltungsrichtlinien vom 1. August 2020, mit anpassungen für Typst],
-  faculty: [Hurensohn Institut],
+  faculty: [Beispielinsitut für Beispielforschung],
 
   author: "Max Mustermann",
   email: link("mailto:example@example.com"),
