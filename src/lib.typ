@@ -1,5 +1,5 @@
-#import "@preview/polylux:0.3.1"
-#import "@preview/hydra:0.5.1": hydra
+#import "@preview/polylux:0.4.0"
+#import "@preview/hydra:0.6.1": hydra
 
 #import "dates.typ": semester, weekday
 #import "colors.typ": *
@@ -17,7 +17,6 @@
 
 #let uncover = polylux.uncover
 #let only = polylux.uncover
-#let pause = polylux.pause
 
 #let slides(
   no: 0,
@@ -53,7 +52,7 @@
   }
 
   set heading(numbering: none)
-  set text(size: 18pt, font: "Roboto")
+  set text(size: 16pt, font: "Roboto")
 
   set page(
     paper: ratio,
